@@ -18,7 +18,9 @@ const Weather = props => {
 
         <h4 className="py-3">{props.description}</h4>
 
-        {props.wind ? <h5 className="py-2">Wind @ {props.wind} MPH</h5> : null}
+        {props.wind ? <h6 className="py-2">wind @ {props.wind} mph</h6> : null}
+
+        {props.humidity ? <h6 className="py-2">{props.humidity}% humidity</h6> : null}
       </div>
     </div>
   );

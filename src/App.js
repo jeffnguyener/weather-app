@@ -21,7 +21,9 @@ class App extends React.Component {
       temp_max: "",
       temp_min: "",
       description: "",
-      error: false
+      error: false,
+      wind: "",
+      humidity: ""
     };
 
     this.weatherIcon = {
@@ -42,8 +44,8 @@ class App extends React.Component {
     return convertCtoF;
   }
 
-  windSpeed(speed){
-    let ws = Math.round(speed)
+  windSpeed(speed) {
+    let ws = Math.round(speed);
     return ws;
   }
 
@@ -97,7 +99,8 @@ class App extends React.Component {
         temp_min: this.calFahrenheit(response.main.temp_min),
         description: response.weather[0].description,
         error: false,
-        wind: this.windSpeed(response.wind.speed)
+        wind: this.windSpeed(response.wind.speed),
+        humidity: response.main.humidity
       });
       this.getWeatherIcon(this.weatherIcon, response.weather[0].id);
     } else {
@@ -118,6 +121,7 @@ class App extends React.Component {
           description={this.state.description}
           weatherIcon={this.state.icon}
           wind={this.state.wind}
+          humidity={this.state.humidity}
         />
       </div>
     );
