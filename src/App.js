@@ -86,11 +86,12 @@ class App extends React.Component {
       console.log(response);
 
       this.setState({
-        cityCountry: `${response.name}, ${response.sys.country}`,
+        city: `${response.name}, ${response.sys.country}`,
         fahrenheit: this.calFahrenheit(response.main.temp),
         temp_max: this.calFahrenheit(response.main.temp_max),
         temp_min: this.calFahrenheit(response.main.temp_min),
-        description: response.weather[0].description
+        description: response.weather[0].description,
+        error: false
       });
       this.getWeatherIcon(this.weatherIcon, response.weather[0].id);
     } else {

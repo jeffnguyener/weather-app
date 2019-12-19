@@ -26,8 +26,9 @@ const Form = props => {
               placeholder="Country"
             />
           </div>
-          <div className="col-md-1 mt-md-0 text-md-left"></div>
-          <button className="btn btn-warning">Get Weather</button>
+          <div className="col-md-3 mt-md-0 text-md-left py-2">
+            <button className="btn btn-warning">Get Weather</button>
+          </div>
         </div>
       </form>
     </div>
