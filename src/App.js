@@ -27,7 +27,8 @@ class App extends React.Component {
   calFahrenheit(temp) {
     let cel = Math.floor(temp - 273.15);
     let fahr = (cel * 9) / 5 + 32;
-    return fahr;
+    let convertCtoF = Math.round(fahr);
+    return convertCtoF;
   }
 
   getWeather = async () => {
