@@ -42,6 +42,11 @@ class App extends React.Component {
     return convertCtoF;
   }
 
+  windSpeed(speed){
+    let ws = Math.round(speed)
+    return ws;
+  }
+
   getWeatherIcon(icons, rangeId) {
     switch (true) {
       case rangeId >= 200 && rangeId <= 232:
@@ -91,7 +96,8 @@ class App extends React.Component {
         temp_max: this.calFahrenheit(response.main.temp_max),
         temp_min: this.calFahrenheit(response.main.temp_min),
         description: response.weather[0].description,
-        error: false
+        error: false,
+        wind: this.windSpeed(response.wind.speed)
       });
       this.getWeatherIcon(this.weatherIcon, response.weather[0].id);
     } else {
@@ -111,6 +117,7 @@ class App extends React.Component {
           temp_min={this.state.temp_min}
           description={this.state.description}
           weatherIcon={this.state.icon}
+          wind={this.state.wind}
         />
       </div>
     );
